@@ -177,7 +177,7 @@ class PkRecrypt(Pk):
     f=[Ciphertext(ZZ.random_element(2^self.alpha),self) for i in range(self.tau)]
 
     c=sum2(ci*fi for ci,fi in izip(self.x.ciphertexts(self),f))+\
-           Ciphertext(ZZ.random_element(2^rhop),self) + Ciphertext(m,self)
+           Ciphertext(2*ZZ.random_element(2^rhop),self) + Ciphertext(m,self)
     if verbose: print "Encrypt",cputime(subprocesses=True)-t
     c.degree=1
     return c
